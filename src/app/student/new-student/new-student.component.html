@@ -1,0 +1,26 @@
+<div>
+  <form class="divCenter" (ngSubmit)="onSubmit()" #studentForm="ngForm">
+    <app-total-count count="{{(students | async).length}}" type='Students'></app-total-count>
+    <h3>New Student</h3>
+    <br/>
+    <div class="col-auto">
+      <input type="text" class="form-control" placeholder="Name" [(ngModel)]="model.name" name="name" #name="ngModel" autofocus/>
+    </div>
+    <br/>
+    <div class="col-auto">
+      <input type="text" class="form-control" placeholder="Age" [(ngModel)]="model.age" name="age" #age="ngModel" />
+    </div>
+    <br/>
+    <div class="col-auto">
+      <select class="form-control" [(ngModel)]="model.isActive" name="isActive" #isActive="ngModel">
+        <option value='true'>Active</option>
+        <option value='false'>Inactive</option>
+      </select>
+    </div>
+    <br/>
+    <div class="col-auto pull-right">
+      <button class="btn btn-success" type="submit">ADD STUDENT</button>
+      <a routerLink="../liststudent" class="btn btn-info">SHOW ALL</a>
+    </div>
+    <br/>
+  </form>

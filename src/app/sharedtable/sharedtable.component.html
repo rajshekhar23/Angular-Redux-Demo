@@ -1,0 +1,19 @@
+<table class='table table-striped table-condensed table-bordered'>
+  <thead>
+    <tr class="success">
+      <th class="text-center" *ngFor='let column of keys'>{{column}}</th>
+      <th class='text-center'>Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let student of tableData; let i= index;'>
+      <td>{{i + 1}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+      <td style='width:100px;text-transform:uppercase;' (click)="toggleStatus($event,student.id)">{{student.isActive ? 'Active' : 'Inactive'}}</td>
+      <td>
+        <button class="btn btn-success btn-sm" (click)="remove_student($event,student.id)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
